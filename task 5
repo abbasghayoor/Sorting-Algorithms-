@@ -1,0 +1,34 @@
+public class Main {
+
+    public static void selectionSort(int[] prices) {
+        int n = prices.length;
+
+        for (int i = 0; i < n - 1; i++) {
+            int min = i;
+
+            for (int j = i + 1; j < n; j++) {
+                if (prices[j] < prices[min]) {
+                    min = j;
+                }
+            }
+
+            int temp = prices[min];
+            prices[min] = prices[i];
+            prices[i] = temp;
+        }
+    }
+
+    public static void main(String[] args) {
+
+        int[] propertyPrices = {250000, 180000, 320000, 150000, 210000};
+
+        selectionSort(propertyPrices);
+
+        System.out.println("Sorted Property Prices:");
+        for (int price : propertyPrices) {
+            System.out.print("$" + price + " ");
+        }
+
+        System.out.println("\nCheapest Property: $" + propertyPrices[0]);
+    }
+}
