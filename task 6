@@ -1,0 +1,30 @@
+public class Main {
+
+    public static void insertionSort(int[] songs) {
+        int n = songs.length;
+
+        for (int i = 1; i < n; i++) {
+            int key = songs[i];
+            int j = i - 1;
+
+            while (j >= 0 && songs[j] < key) {
+                songs[j + 1] = songs[j];
+                j--;
+            }
+
+            songs[j + 1] = key;
+        }
+    }
+
+    public static void main(String[] args) {
+
+        int[] popularity = {1200, 800, 1500, 950, 1100};
+
+        insertionSort(popularity);
+
+        System.out.println("Songs Sorted by Popularity (Highest to Lowest):");
+        for (int score : popularity) {
+            System.out.print(score + " ");
+        }
+    }
+}
